@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ================================================================
  * EXPORT CSV - HASIL VOTING POLLING
@@ -91,7 +92,7 @@ try {
     // ================================================================
     // VALIDASI HAK AKSES 
     // ================================================================
-    
+
     // Cek status polling
     $pollClosed = !empty($poll['end_time']) && strtotime($poll['end_time']) <= time();
     $isCreator = ($poll['creator_id'] == $currentUserId);
@@ -149,10 +150,10 @@ try {
     // ================================================================
     // GENERATE CSV FILE
     // ================================================================
-    
+
     // Setup filename dengan timestamp
     $filename = 'poll-results-' . $pollId . '-' . date('Y-m-d-H-i-s') . '.csv';
-    
+
     // Set headers untuk download
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename="' . $filename . '"');
@@ -163,7 +164,7 @@ try {
     $output = fopen('php://output', 'w');
 
     // Set BOM untuk Unicode support (Excel compatibility)
-    fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
+    fprintf($output, chr(0xEF) . chr(0xBB) . chr(0xBF));
 
     // ================================================================
     // TULIS HEADER INFORMASI POLLING
@@ -174,7 +175,7 @@ try {
     fputcsv($output, ['Poll Title', $poll['title']]);
     fputcsv($output, ['Poll Creator', $poll['creator_name']]);
     fputcsv($output, ['Poll Created', $poll['created_at']]);
-    
+
     if (!empty($poll['end_time'])) {
         fputcsv($output, ['Poll End Time', $poll['end_time']]);
         fputcsv($output, ['Poll Status', $pollClosed ? 'Closed' : 'Active']);
@@ -182,11 +183,11 @@ try {
         fputcsv($output, ['Poll End Time', 'No end time']);
         fputcsv($output, ['Poll Status', 'Active (No expiry)']);
     }
-    
+
     if (!empty($poll['description'])) {
         fputcsv($output, ['Poll Description', $poll['description']]);
     }
-    
+
     fputcsv($output, ['Total Votes', $totalVotes]);
     fputcsv($output, []); // Baris kosong
 
@@ -236,4 +237,3 @@ try {
     header('Location: ' . APP_URL . '/src/results.php?poll_id=' . $pollId);
     exit;
 }
-?>

@@ -395,34 +395,3 @@ $pageTitle = 'Login'; // Untuk page title
 </body>
 
 </html>
-
-<!-- ================================================================ -->
-<!-- CATATAN IMPLEMENTASI -->
-<!-- ================================================================ -->
-<!--
-FITUR KEAMANAN:
-1. Session management yang proper
-2. Input validation dan sanitization
-3. Password verification menggunakan Auth class
-4. Redirect protection
-
-FITUR UX:
-1. Form repopulation jika ada error
-2. Toast notifications untuk feedback
-3. Dark mode support
-4. Responsive design
-5. Loading states dan transitions
-
-STRUKTUR KODE:
-1. Separation of concerns (logic, presentation)
-2. Consistent error handling
-3. Proper comment documentation
-4. Alpine.js untuk interactivity
-5. Tailwind CSS untuk styling
-
-DEPLOYMENT CONSIDERATIONS:
-1. CSRF protection (bisa ditambahkan)
-2. Rate limiting (implementasi server-side)
-3. HTTPS enforcement untuk production
-4. Session security settings
--->

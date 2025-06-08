@@ -342,35 +342,3 @@ try {
     header('Location: ' . APP_URL . '/src/results.php?poll_id=' . $pollId);
     exit;
 }
-
-/**
- * ================================================================
- * CATATAN PENGEMBANGAN
- * ================================================================
- * 
- * KEAMANAN:
- * - Input validation untuk poll_id
- * - Escape HTML untuk mencegah XSS
- * - Prepared statements untuk mencegah SQL injection
- * - Session-based authentication
- * - Access control yang ketat
- * 
- * PERFORMA:
- * - Query efisien dengan JOIN
- * - Minimal database calls
- * - Error handling yang proper
- * 
- * MAINTENANCE:
- * - Log error untuk debugging
- * - Consistent error messages
- * - Proper redirect flow
- * 
- * FUTURE IMPROVEMENTS:
- * - Add charts/graphs to PDF
- * - Configurable PDF templates
- * - Batch export multiple polls
- * - Add watermarks/logos
- * - Digital signatures for official reports
- * 
- * ================================================================
- */

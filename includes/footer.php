@@ -4,10 +4,10 @@
 <footer class="bg-white dark:bg-gray-800 mt-auto py-8 border-t border-gray-200 dark:border-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p class="text-sm text-gray-500 dark:text-gray-400">
-            &copy; <?= date('Y') ?> <?= APP_NAME ?>. All rights reserved. Built with PHP, Tailwind CSS, and Alpine.js.
+            &copy; <?= date('Y') ?> <?= APP_NAME ?>. All rights reserved. 
         </p>
         <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">
-            Icons by <a href="https://feathericons.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">Feather Icons</a>.
+            Built with PHP, Tailwind CSS, and Alpine.js.
         </p>
     </div>
 </footer>

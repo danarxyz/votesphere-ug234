@@ -591,23 +591,4 @@ $searchPath = APP_URL . '/src/search.php';
     <!-- MAIN CONTENT AREA START -->
     <!-- ================================================================ -->
     <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- 
-        ============================================================
-        KONTEN UTAMA HALAMAN AKAN DI-INCLUDE DI SINI
-        ============================================================
-        
-        Setiap halaman yang menggunakan header ini akan menampilkan
-        kontennya di dalam tag <main> ini.
-        
-        STRUKTUR HALAMAN:
-        1. Header (file ini) - Navigation & global functionality
-        2. Main Content (dari halaman individual)
-        3. Footer (dari footer.php) - Copyright & links
-        
-        BEST PRACTICES:
-        - Gunakan container classes yang konsisten
-        - Maintain responsive spacing
-        - Pastikan accessibility dengan proper semantic HTML
-        - Test di berbagai ukuran layar
-        ============================================================
-        -->
+       
