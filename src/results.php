@@ -193,41 +193,6 @@ try {
 }
 
 // ================================================================
-// FITUR EXPORT CSV
-// ================================================================
-/**
- * Jika parameter export=csv ada di URL, generate file CSV
- * Format: Poll info + hasil voting dalam format tabel
- */
-if (isset($_GET['export']) && $_GET['export'] === 'csv') {
-    // Set header untuk download file CSV
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="poll-results-' . $pollId . '.csv"');
-
-    // Buka output stream
-    $output = fopen('php://output', 'w');
-
-    // Tulis header informasi polling
-    fputcsv($output, ['Poll', $poll['title']]);
-    fputcsv($output, ['Creator', $poll['creator_name']]);
-    fputcsv($output, ['Total Votes', $totalVotes]);
-    fputcsv($output, []); // Baris kosong
-    fputcsv($output, ['Option', 'Votes', 'Percentage']); // Header tabel
-
-    // Tulis data hasil voting
-    foreach ($results as $result_csv) {
-        fputcsv($output, [
-            $result_csv['option_text'],
-            $result_csv['vote_count'],
-            $result_csv['percentage'] . '%'
-        ]);
-    }
-
-    fclose($output);
-    exit; // Hentikan eksekusi setelah export
-}
-
-// ================================================================
 // SETUP UNTUK TEMPLATE HTML
 // ================================================================
 $pageTitle = htmlspecialchars($poll['title']) . ' - Results';
@@ -276,8 +241,8 @@ require_once __DIR__ . '/../includes/header.php';
 
             <!-- Tombol Export -->
             <div class="flex gap-2 mt-4 sm:mt-0">
-                <!-- Export CSV -->
-                <a href="<?= APP_URL ?>/src/results.php?poll_id=<?= $pollId ?>&export=csv"
+                <!-- Export CSV - Update URL -->
+                <a href="<?= APP_URL ?>/src/export_csv.php?poll_id=<?= $pollId ?>"
                     class="inline-flex items-center px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors">
                     <i data-feather="download" class="w-4 h-4 mr-2"></i>
                     CSV
