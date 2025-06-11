@@ -2,7 +2,6 @@
 $pageTitle = 'Search Results';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../database/Database.php';
-// utils.php is already included by header.php
 
 $q = trim($_GET['q'] ?? '');
 $results = [];
@@ -22,7 +21,7 @@ if ($q !== '') {
     $searchTerm = '%' . $q . '%';
     $stmt->execute([$searchTerm, $searchTerm]);
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $total = count($results); // Use count($results) as $stmt->rowCount() might not be reliable for SELECT with all DB drivers
+    $total = count($results); 
 }
 ?>
 

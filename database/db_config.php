@@ -22,9 +22,9 @@ if (!isset($_ENV['DB_HOST'])) {
 
 return [
     'host' => $_ENV['DB_HOST'] ?? 'localhost',
-    'dbname' => $_ENV['DB_NAME'] ?? 'voting_app_php',
+    'dbname' => $_ENV['DB_NAME'] ?? 'voting-app-php',
     'user' => $_ENV['DB_USER'] ?? 'root',
-    'pass' => $_ENV['DB_PASS'] ?? '',
+    'pass' => $_ENV['DB_PASS'] ?? 'root',
     'port' => $_ENV['DB_PORT'] ?? '3306',
     'charset' => 'utf8mb4'
 ];
